@@ -17,7 +17,7 @@
 
         <div class="flex justify-between items-center mb-8">
             <div>
-                <h1 class="text-4xl font-bold text-gray-800">Payment Management</h1>
+                <h1 class="text-4xl font-bold text-gray-800">Dashboard</h1>
                 <p class="text-gray-500 mt-1">Review, approve, and manage student tuition submissions</p>
             </div>
             <div class="flex gap-3">

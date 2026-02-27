@@ -58,7 +58,7 @@
             @endphp        
 
                 <!-- FUMSYS Portal Button -->
-                <a href="{{ $portalRoute }}" class="bg-[#057e2f] px-3 py-1 rounded hover:bg-green-700 font-bold inline-flex items-center gap-1">
+                <a href="/student" class="bg-[#057e2f] px-3 py-1 rounded hover:bg-green-700 font-bold inline-flex items-center gap-1">
                     <span class="text-[#d7e1b3]">FUMSYS</span>
                     <span class="text-[#e5db19]">Portal</span>
                 </a>

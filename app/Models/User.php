@@ -24,6 +24,8 @@ class User extends Authenticatable
         'contactNumber',
         'address',
         'role',
+        'status',
+        'password', // Ensure this is here
     ];
 
     /**

@@ -38,19 +38,21 @@ class SystemAdminController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'role' => 'required|string|in:Admin,Student,Registrar,Cashier,Admissions,System Admin,Teacher',
+            'status' => 'required|string|in:Active,Inactive',
         ]);
-
+    
         $user = User::findOrFail($id);
+    
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
+            'status' => $request->status, // ← THIS WAS MISSING
         ]);
-
+    
         return redirect()->route('system-admin.users.index')
                          ->with('success', 'User updated successfully.');
     }
-
     // Show create user page (if needed)
     public function create()
     {
@@ -69,9 +71,8 @@ class SystemAdminController extends Controller
         'name' => $request->name,
         'email' => $request->email,
         'role' => $request->role,
-        'password' => bcrypt('password123'), // default password
+        'password' => bcrypt($request->password ?? '12345678'), // default if empty    ]);
     ]);
-
     return redirect()->route('system-admin.users.index')
                      ->with('success', 'User added successfully.');
 }

@@ -7,61 +7,82 @@
   <title>FUMCES - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="{{ asset('resources/fumces_logo.jpg') }}" type="image/png">
+  <style>
+    /* Premium Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delays for grids */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Smooth Image Zoom on Hover */
+    .hover-zoom {
+      overflow: hidden;
+    }
+    .hover-zoom img {
+      transition: transform 0.5s ease;
+    }
+    .hover-zoom:hover img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
-<body class="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans flex flex-col">
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 font-sans flex flex-col scroll-smooth">
 
   @include('layouts.header')
 
   <section class="relative min-h-screen flex items-center overflow-hidden pt-2">
 
-    <!-- Background -->
     <div class="absolute inset-0 z-0">
-      <img src="{{ asset('images/bg-image.jpeg') }}" class="w-full h-full object-cover" alt="">
+      <img src="{{ asset('images/bg-image.jpeg') }}" class="w-full h-full object-cover scale-105 animate-[pulse_10s_infinite]" alt="">
       <div class="absolute inset-0 bg-gradient-to-r from-green-700/90 via-green-700/70 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent"></div>
     </div>
 
-    <!-- Content -->
     <div class="relative z-10 w-full">
       <div class="max-w-2xl px-6 sm:px-12 lg:px-24 text-left">
 
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur rounded-full px-4 py-2 mb-3">
+        <div class="reveal active inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-3 border border-white/10">
           <span class="text-yellow-400 text-sm">✨</span>
           <span class="text-sm font-medium text-white">
             Now Enrolling for 2025–2026
           </span>
         </div>
 
-        <!-- Heading -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        <h1 class="reveal active delay-100 text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           Where Every Child's
           <span class="text-yellow-400">Potential</span>
           Shines Bright
         </h1>
 
-        <!-- Description -->
-        <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+        <p class="reveal active delay-200 text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
           We nurture curious minds through engaging, hands on learning experiences that prepare students for success.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        <div class="reveal active delay-300 flex flex-col sm:flex-row gap-4 mb-12">
           <a href="/admissions"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-300 transition">
+            class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-300 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:-translate-y-1 transition-all duration-300">
             Enroll Now
           </a>
 
           <a href="/about"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white text-white font-semibold hover:bg-white/10 transition">
+            class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white text-white font-semibold hover:bg-white/10 transform hover:-translate-y-1 transition-all duration-300">
             Learn More About Us
           </a>
         </div>
 
-        <!-- Stats -->
-        <div class="flex flex-wrap gap-10">
-
+        <div class="reveal active delay-300 flex flex-wrap gap-10">
           <div>
             <div class="text-3xl font-bold text-yellow-400">
               <span class="counter" data-target="500">0</span>+
@@ -82,19 +103,16 @@
             </div>
             <div class="text-sm text-white/80">Years of Excellence</div>
           </div>
-
         </div>
 
       </div>
     </div>
-
   </section>
 
   <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
 
-      <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="reveal text-center max-w-2xl mx-auto mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Why Families Choose <span
             class="bg-clip-text text-transparent bg-gradient-to-r from-green-700 via-green-600 to-green-500">First United Methodist
@@ -106,13 +124,11 @@ Church Ecumenical School
         </p>
       </div>
 
-      <!-- Features Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <!-- Feature 1 -->
         <div
-          class="group bg-white rounded-3xl p-8 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl">
+          class="reveal delay-100 group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl group-hover:scale-110 transition-transform">
             ❤️</div>
           <h3 class="text-xl font-bold text-green-700 mb-3">Nurturing Environment</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -120,10 +136,9 @@ Church Ecumenical School
           </p>
         </div>
 
-        <!-- Feature 2 -->
         <div
-          class="group bg-white rounded-3xl p-8 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl">
+          class="reveal delay-200 group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl group-hover:scale-110 transition-transform">
             💡</div>
           <h3 class="text-xl font-bold text-green-700 mb-3">Creative Learning</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -131,10 +146,9 @@ Church Ecumenical School
           </p>
         </div>
 
-        <!-- Feature 3 -->
         <div
-          class="group bg-white rounded-3xl p-8 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl">
+          class="reveal delay-300 group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl group-hover:scale-110 transition-transform">
             👥</div>
           <h3 class="text-xl font-bold text-green-700 mb-3">Strong Community</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -142,10 +156,9 @@ Church Ecumenical School
           </p>
         </div>
 
-        <!-- Feature 4 -->
         <div
-          class="group bg-white rounded-3xl p-8 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl">
+          class="reveal delay-300 group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-700 text-2xl group-hover:scale-110 transition-transform">
             🏆</div>
           <h3 class="text-xl font-bold text-green-700 mb-3">Academic Excellence</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -157,14 +170,10 @@ Church Ecumenical School
     </div>
   </section>
 
-
-
-
   <section class="py-24 bg-[#f5f6f1]">
     <div class="max-w-7xl mx-auto px-4">
 
-      <!-- Section Header -->
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+      <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
         <div class="max-w-2xl">
           <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-4">
             Our Educational Programs
@@ -174,20 +183,17 @@ Church Ecumenical School
           </p>
         </div>
         <a href="/education"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-green-700 rounded-xl text-green-700 font-semibold hover:bg-green-100 transition">
+          class="inline-flex items-center gap-2 px-6 py-3 border border-green-700 rounded-xl text-green-700 font-semibold hover:bg-green-700 hover:text-white transition-all duration-300">
           View All Programs →
         </a>
       </div>
 
-      <!-- Programs Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Program 1 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
+        <div class="reveal group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-gray-100">
+          <div class="h-2 bg-green-700 transform origin-left group-hover:scale-x-110 transition-transform duration-500"></div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
+              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl group-hover:rotate-12 transition-transform">
                 📚</div>
               <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
             </div>
@@ -197,166 +203,107 @@ Church Ecumenical School
             </p>
           </div>
         </div>
-
-        <!-- Program 2 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
+        
+        <div class="reveal delay-100 group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-gray-100">
+          <div class="h-2 bg-green-700 transform origin-left group-hover:scale-x-110 transition-transform duration-500"></div>
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
+              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl group-hover:rotate-12 transition-transform">
                 🧮</div>
               <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
             </div>
             <h3 class="text-xl font-bold text-green-700 mb-3">Mathematics</h3>
-            <p class="text-green-700/70 leading-relaxed">
-              Building strong foundations in numbers, problem-solving, and logical thinking.
-            </p>
+            <p class="text-green-700/70 leading-relaxed">Building strong foundations in numbers, problem-solving, and logical thinking.</p>
           </div>
         </div>
 
-        <!-- Program 3 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
-                🌍</div>
-              <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
+        <div class="reveal delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-gray-100">
+            <div class="h-2 bg-green-700"></div>
+            <div class="p-8">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">🌍</div>
+                    <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
+                </div>
+                <h3 class="text-xl font-bold text-green-700 mb-3">Social Studies</h3>
+                <p class="text-green-700/70 leading-relaxed">Exploring history, geography, and cultures to understand our diverse world.</p>
             </div>
-            <h3 class="text-xl font-bold text-green-700 mb-3">Social Studies</h3>
-            <p class="text-green-700/70 leading-relaxed">
-              Exploring history, geography, and cultures to understand our diverse world.
-            </p>
-          </div>
         </div>
-
-        <!-- Program 4 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
-                🍃</div>
-              <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
-            </div>
-            <h3 class="text-xl font-bold text-green-700 mb-3">Science</h3>
-            <p class="text-green-700/70 leading-relaxed">
-              Hands-on experiments and discovery-based learning about our natural world.
-            </p>
-          </div>
+        
         </div>
-
-        <!-- Program 5 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
-                🎨</div>
-              <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
-            </div>
-            <h3 class="text-xl font-bold text-green-700 mb-3">Visual Arts</h3>
-            <p class="text-green-700/70 leading-relaxed">
-              Nurturing creativity through painting, drawing, sculpture, and digital arts.
-            </p>
-          </div>
-        </div>
-
-        <!-- Program 6 -->
-        <div class="group bg-white rounded-3xl shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-          <div class="h-2 bg-green-700"></div>
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 text-2xl">
-                🎵</div>
-              <span class="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">Grades K-5</span>
-            </div>
-            <h3 class="text-xl font-bold text-green-700 mb-3">Music & Performing Arts</h3>
-            <p class="text-green-700/70 leading-relaxed">
-              Developing musical talents and self-expression through song, instruments, and performance.
-            </p>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
-  <section class="py-24 relative overflow-hidden bg-green-700">
-    <!-- Background -->
-    <div class="absolute inset-0 to-white opacity-80"></div>
-    <div class="absolute inset-0 bg-[url('assets/pattern-waves.png')] opacity-30"></div>
-
+  <section class="reveal py-24 relative overflow-hidden bg-green-700">
+    <div class="absolute inset-0 bg-[url('assets/pattern-waves.png')] opacity-10 animate-pulse"></div>
     <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
-
-      <!-- Heading -->
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
         Ready to Give Your Child the <span class="text-yellow-400">Best Start?</span>
       </h2>
-
-      <!-- Description -->
       <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-        Join our welcoming community and watch your child thrive. Start the enrollment process today or contact us to
-        learn more.
+        Join our welcoming community and watch your child thrive. Start the enrollment process today or contact us to learn more.
       </p>
-
-      <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/admissions"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-300 transition w-full sm:w-auto">
-          <!-- Arrow Right Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <a href="/admissions" class="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-300 transition-all duration-300 w-full sm:w-auto hover:shadow-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
           Enroll Your Child
         </a>
-
-        <a href="/contact"
-          class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white text-white font-semibold hover:bg-white/10 transition w-full sm:w-auto">
-          <!-- Phone Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H7a14 14 0 006 6v-2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white text-white font-semibold hover:bg-white/10 transition-all duration-300 w-full sm:w-auto">
           Contact Us
         </a>
       </div>
-
-      <!-- Info -->
-      <p class="mt-8 text-white/70 text-sm">
-        Open enrollment for 2025-2026 school year. Limited spots available.
-      </p>
-
     </div>
   </section>
-
 
   @include('layouts.footer')
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // 1. Counter Animation
       const counters = document.querySelectorAll(".counter");
+      const observerOptions = { threshold: 0.5 };
 
-      counters.forEach(counter => {
-        const target = +counter.dataset.target;
-        let current = 0;
-        const increment = Math.ceil(target / 120);
-
-        const update = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = current;
-            requestAnimationFrame(update);
-          } else {
-            counter.textContent = target;
+      const startCounter = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = +counter.dataset.target;
+            let current = 0;
+            const increment = Math.ceil(target / 100);
+            
+            const update = () => {
+              current += increment;
+              if (current < target) {
+                counter.textContent = current;
+                requestAnimationFrame(update);
+              } else {
+                counter.textContent = target;
+              }
+            };
+            update();
+            observer.unobserve(counter);
           }
-        };
+        });
+      };
 
-        update();
-      });
+      const counterObserver = new IntersectionObserver(startCounter, observerOptions);
+      counters.forEach(c => counterObserver.observe(c));
+
+      // 2. Scroll Reveal Animation
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      };
+
+      const revealObserver = new IntersectionObserver(revealOnScroll, { threshold: 0.1 });
+      revealElements.forEach(el => revealObserver.observe(el));
     });
   </script>
 
 </body>
-
 </html>

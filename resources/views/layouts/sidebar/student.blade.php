@@ -8,7 +8,7 @@
                 d="M5.121 17.804A9 9 0 1118.88 17.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
         </svg>
       </div>
-      <p class="font-semibold text-white text-lg">{{ auth()->user()->name }}</p>
+      <p class="font-semibold text-white text-lg">{{ auth()->user()?->name}}</p>
       <p class="text-xs text-white/70">
         @switch(auth()->user()->role)
           @case('registrar') Registrar @break
@@ -16,8 +16,9 @@
           @case('teacher') Teacher @break
           @case('adviser') Class Adviser @break
           @default Student
-        @endswitch
-      </p>
+        @endswitch:
+        {{ auth()->user()->student_number ?? 'N/A' }}
+    </p>
       <form method="POST" action="{{ route('logout') }}">
         @csrf
         <button type="submit" class="mt-2 w-full px-4 py-2 rounded-lg bg-white text-[#057E2E] font-medium hover:bg-gray-100 transition">
@@ -58,17 +59,17 @@
       </a>
     
       <!-- Documents -->
-      <a href="#" 
+      <a href="{{ route('student.documents.index') }}" 
          class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition
          {{ request()->routeIs('student.documents.index') ? 'bg-white text-[#057E2E] font-bold shadow-md' : 'text-white hover:bg-white hover:text-[#057E2E] hover:font-semibold' }}">
         <span>Documents</span>
       </a>
     
       <!-- My Tuition -->
-      <a href="#" 
+      <a href="{{ route('student.tuitions.index') }}" 
          class="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition
-         {{ request()->routeIs('student.tuition') ? 'bg-white text-[#057E2E] font-bold shadow-md' : 'text-white hover:bg-white hover:text-[#057E2E] hover:font-semibold' }}">
-        <span>My Tuition</span>
+         {{ request()->routeIs('student.tuitions.index') ? 'bg-white text-[#057E2E] font-bold shadow-md' : 'text-white hover:bg-white hover:text-[#057E2E] hover:font-semibold' }}">
+        <span>Tuitions</span>
       </a>
     
     
